@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ["./src/*"],
   theme: {
     container:{
       padding:{
@@ -13,6 +13,10 @@ export default {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    'postcss-import',
+    'tailwindcss',
+    'autoprefixer'
+  ],
 }
 

@@ -1,4 +1,5 @@
 import logo from '../../public/icon/logo.png';
+import "../CSS/index.css"
 
 export default function Navbar() {
   let CurrentTheme = window.matchMedia;
@@ -26,7 +27,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-white dark:bg-slate-800">
+    <nav className="bg-slate-500">
       <div className="static flex items-center justify-between p-4">
         <div className="flex items-center space-x-4">
           <a href="#" className="flex items-center">

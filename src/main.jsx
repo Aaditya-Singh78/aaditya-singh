@@ -6,7 +6,7 @@ import logo from '../public/icon/logo.png';
 
 const App = () => {
   useEffect(() => {
-    document.title = "Aaditya Singh";
+    document.title = 'Aaditya Singh';
     const link = document.querySelector("link[rel~='icon']");
     if (link) {
       link.href = logo;
@@ -21,5 +21,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Navigation/>
     </div>
   </React.StrictMode>,
-  <App />
+  // <App />
 )
