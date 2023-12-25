@@ -11,4 +11,5 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer]
     },
   },
+  assetsInclude: '/\.(png|jpe?g|gif|svg)$i',
 });
