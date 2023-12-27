@@ -1,60 +1,55 @@
-import logo from '../../public/icon/logo.png';
-import "../CSS/index.css"
+import { useState, useEffect } from 'react';
+import logo from '../icon/logo.png';
+import '../css/app.css';
 
 export default function Navbar() {
-  let CurrentTheme = window.matchMedia;
-  let symbol;
 
-  if (CurrentTheme('(prefers-color-scheme: dark)')) {
-    symbol = (
-      <img
-        className="list-none"
-        src="https://cdn3.iconfinder.com/data/icons/ui-10/512/shine-256.png"
-        alt=""
-        width={40.0}
-        height={40.0}
-      />
-    );
-  } else {
-    symbol = (
-      <img
-        src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-moon-256.png"
-        alt=""
-        width={40.0}
-        height={40.0}
-      />
-    );
-  }
+// study in react about usestate and useeffect.
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Apply theme based on isDarkMode state
+    document.body.classList.toggle('dark-theme', isDarkMode);
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+  
 
   return (
-    <nav className="bg-slate-500">
-      <div className="static flex items-center justify-between p-4">
-        <div className="flex items-center space-x-4">
-          <a href="#" className="flex items-center">
-            <img src={logo} alt="" width={40.0}
-        height={40.0} />
-          </a>
-          <ul className=" flex space-x-4">
+    <nav >
+        <div className='m-1.5 p-1.5  border-2 rounded border-black '>
+        <ul className='flex flex-auto space-x-7 items-center justify-start'>
             <li>
+            <a href="#" >
+              <img src={logo} alt="" width={40.0}
+                height={40.0} />
+            </a>
+            </li>
+            <span className='flex  space-x-4 items-center'>
+              <li className='justify-end'>
               <a href="#">About</a>
             </li>
-            <li>
+            <li className='justify-end'>
               <a href="#">Project</a>
             </li>
-            <li>
+            <li className='justify-end'>
               <a href="#">Article</a>
             </li>
-            <li>
+            <li className='justify-end'>
               <a href="#">Contact</a>
             </li>
-          </ul>
+          <li className='justify-end'>
+          <button onClick={toggleTheme}>
+                Toggle Theme
+              </button>
+            
+          </li>
+            </span>
+            
+        </ul>
         </div>
-        <div>
-          <a href="#" className="flex items-center">
-            {symbol}
-          </a>
-        </div>
-      </div>
     </nav>
   );
 }
