@@ -1,6 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "./header.css";
+@import "./footer.css";
 
 .end{
     justify-content: end;
