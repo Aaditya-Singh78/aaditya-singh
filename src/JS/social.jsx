@@ -1,8 +1,7 @@
-import '../css/app.css';
-export default function Navigation(){
+export default function Social(){
     return(
-        <div className='m-0.5 p-1 flex items-center justify-end footer'>
-            <div className='order-2  grow'>    
+        <div className='m-0.5 p-1 flex-auto items-center justify-end footer'>
+            <div className='order-2 grow'>    
                 <ul className='flex space-x-4 justify-end'> 
                     <li>
                         <a href="https://github.com/Aaditya-Singh78">

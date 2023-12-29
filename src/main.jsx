@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Navbar from './JS/header'
-import Navigation from './JS/footer'
-import Content from './JS/content';
+import Navbar from './JS/navbar'
+import Social from './JS/social'
 import logo from './icon/logo.png';
-import './css/app.css';
+import './css/app.css';  
 
 const App = () => {
   useEffect(() => {
@@ -13,14 +12,13 @@ const App = () => {
       link.href = logo;
     }
   }, []);
-}
+} 
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <div className='layout'>
+    <div>
       <Navbar />
-      <Content />
-      <Navigation/>
+      <Social />
     </div>
   </React.StrictMode>,
   <App />
