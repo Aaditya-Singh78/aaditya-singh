@@ -1,3 +1,7 @@
-function mailto(){
+function mails(){
     
+}
+
+export default function form(){
+
 }

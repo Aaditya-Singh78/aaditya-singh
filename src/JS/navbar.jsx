@@ -1,83 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../icon/logo.png';
 import SunIcon from './icon/sunIcon';
-import MoonIcon from './icon/moonIcon'
+import MoonIcon from './icon/moonIcon';
 
-const Navbar = () => {
-  const [theme, setTheme] = useState(getInitialTheme());
+let name = 
+    <li>
+      <a href="#">Aaditya Singh</a>
+    </li>
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+const web = 
+    <li>
+      <a href="#">
+        <img src={logo} alt="" width={40.0} height={40.0} />
+      </a>
+    </li>
 
-    const handleThemeChange = () => {
-      setTheme(getBrowserTheme());
-    };
+const pages = [
+    {title:'About', href: '#'},
+    {title: 'Project', href: '#'},
+    {title: 'Article', href: '#'},
+    {title: 'Contact', href: '#'}
+];
 
-    mediaQuery.addEventListener('change', handleThemeChange);
-    return () => {
-      mediaQuery.removeEventListener('change', handleThemeChange);
-    };
-  }, []);
+const listItem = pages.map(pages =>
+    <li>
+        <a href={pages.href}>{pages.title}</a>
+    </li>
+)
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
+function Behaviour(){
+/*
+  Problem stmt: Create a function that know about Current theme of browser or os. 
+  if it is light theme: change css property according to it. or, else if it is dark 
+  theme: change property according to it. 
+*/
 
-  const getThemeIcon = () => {
-    // console.log('success');
-    return theme === 'dark' ? <SunIcon /> : <MoonIcon />;
-  };
+// -------------------------------------------------------------------------------
+}
 
+export default function Navbar(){
   return (
-    <nav className={`m-1.5 p-1.5 flex header ${theme}-theme`}>
+    <nav className={'m-1.5 p-1.5 flex header'}>
       <div className='order-1'>
         <ul className='flex items-center justify-end'>
-          <li>
-            <a href="#">
-              <img src={logo} alt="" width={40.0} height={40.0} />
-            </a>
-          </li>
+          {web}
         </ul>
       </div>
       <div className='order-2 grow'>
         <ul className='flex space-x-4 items-center justify-end'>
-          <li>
-            <a href="">Aaditya Singh</a>
-          </li>
+          {name}
         </ul>
       </div>
       <div className='order-3 grow'>
         <ul className='flex space-x-4 items-center justify-end'>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Project</a>
-          </li>
-          <li>
-            <a href="#">Article</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-          <li>
-            <button onClick={toggleTheme}>
-              {getThemeIcon()}
-            </button>
-          </li>
+          {listItem}
         </ul>
       </div>
     </nav>
   );
 };
-
-const getInitialTheme = () => {
-  const storedTheme = localStorage.getItem('theme');
-  return storedTheme ? storedTheme : getBrowserTheme();
-};
-
-const getBrowserTheme = () => {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
-
-export default Navbar;
