@@ -1,3 +1,6 @@
+#private files
+private/
+
 # Logs
 logs
 *.log
