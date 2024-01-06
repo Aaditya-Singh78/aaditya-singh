@@ -1,5 +1,6 @@
-#private files
+# Ignore private files
 private/
+
 
 # Logs
 logs
