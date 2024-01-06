@@ -1,3 +1,3 @@
-function applications(){
+export default function Applications(){
     
 }

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../icon/logo.png';
+import Behaviour from '../../Api/theme';
 import SunIcon from './icon/sunIcon';
 import MoonIcon from './icon/moonIcon';
+
+//  Problem Statement: How to call About Section here based on Link in href. 
+//  solution: I' thought, it would be through react-router
 
 let name = 
     <li>
@@ -27,16 +31,6 @@ const listItem = pages.map(pages =>
         <a href={pages.href}>{pages.title}</a>
     </li>
 )
-
-function Behaviour(){
-/*
-  Problem stmt: Create a function that know about Current theme of browser or os. 
-  if it is light theme: change css property according to it. or, else if it is dark 
-  theme: change property according to it. 
-*/
-
-// -------------------------------------------------------------------------------
-}
 
 export default function Navbar(){
   return (

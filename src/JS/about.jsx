@@ -3,6 +3,7 @@ import History from "./Subinfo/history";
 import Experience from "./Subinfo/experience";
 import Skills from "./Subinfo/skills";
 import Volunteer from "./Subinfo/volunteer";
+import { getResume } from "../../Api/pdf";
 
 let pic = <img src="" alt="" />
 let Introduction = 
@@ -10,14 +11,8 @@ let Introduction =
         <h1>Hi, I am Aaditya Singh</h1>
         <p> I'm a dedicated and adaptable technologist driven by a profound passion for software development and engineering.   </p>
     </>
-
-/* 
-    Problem stmt: write up a function that would fetch resume according to domain.
-    introducing concept of active questioning about purpose of visit to my portfolio 
-    as recruitement. if, it specify other. then a genric resume should be provided.
-*/
-
-function purpose(){
+    
+export function purpose(){
     return(
         <>
           <form action="" method="GET">
@@ -46,21 +41,9 @@ function purpose(){
     )
 }
 
-function getResume(){
-    // sending mail and loading file
-    
-    if (document.getElementById('#Web')) {
-        console.alert("Got your WebD Resume ");
-    } else if(document.getElementById('#SDE')){
-        console.alert("Got your SDE Resume ");
-    }else{
-        console.alert("Got your DA Resume ");
-    }
-}
-
 const resume = <button onClick={purpose}>EXPLORE MY CREDENTIALS</button>
 
-function profile(){
+export default function profile(){
  return(
     <div>
         {pic}
@@ -73,3 +56,4 @@ function profile(){
     </div>
  );
 }
+

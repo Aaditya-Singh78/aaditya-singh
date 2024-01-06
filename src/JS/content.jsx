@@ -1,4 +1,7 @@
-export default function content(){
+import React from "react";
+import Applications from "./projects";
+
+export default function Content(){
     return(
         <div>
             <p>

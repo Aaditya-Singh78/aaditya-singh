@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 let sectionHeading = ['Languages', 'Web Development', 'Mobile App Development', 
 'Database Management', 'Cross-Platform Development', 'Tools'];
 
@@ -5,54 +7,47 @@ const listSkill = [
     ['Java', 'JavaScript', 'Python'],
     ['React', 'Node', 'HTML','CSS'],
     ['Flutter'],
-    ['MySqL', 'MongoDb', 'Oracle'],
+    ['MySql', 'MongoDb', 'Oracle'],
     ['Electron'],
     ['Git', 'Docker', 'Firebase', 'Apache Ant','Aws']
 ];
-let items;
 
-// I wanted to list seperate listskills as every items.
+let items = [];
 
-// build it recursive to optimise.
 for (let i = 0; i < sectionHeading.length; i++) {
-    for (let j = 0; j < listSkill.length; j++) {
-        items = [
-            {head:sectionHeading[i],res:listSkill[j]}
-        ];
-    } 
+    const sectionItems = listSkill[i].map(skill => ({ head: sectionHeading[i], res: skill }));
+    items = items.concat(sectionItems);
 }
 
-const listItem = items.map(items=>{
-    <div>
-        <h3>{items.head}</h3>
+const SkillsList = items.map(item => (
+    <div key={item.head}>
+        <h3>{item.head}</h3>
         <div>
             <ul>
-                <li>
-                    {
-                       items.res 
-                    }
-                </li>
+                <li>{item.res}</li>
             </ul>
         </div>
     </div>
-})
+));
 
-/*
-    Problem stmt: write a function that on clicking Skills section,
-    it will open my paragraph section!
- */
+function Skills() {
+    const [showList, setShowList] = useState(false);
 
-function getDetails(){
+    const getDetails = () => {
+        setShowList(!showList);
+    };
 
-}
-
-export default function Skills(){
-    return(
-    <div>
-            <h2><button onClick={getDetails}>SKILLS</button> </h2>
+    return (
         <div>
-            {listItem}
+            <h2><button onClick={getDetails}>SKILLS</button></h2>
+            {showList && (
+                <div>
+                    {SkillsList}
+                </div>
+            )}
+            
         </div>
-    </div>
-    )
+    );
 }
+
+export default Skills;
